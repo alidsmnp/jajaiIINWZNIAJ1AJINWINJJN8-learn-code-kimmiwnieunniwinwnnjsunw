@@ -1,0 +1,242 @@
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #333;
+        }
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        header nav a {
+            color: #f0f0f0;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        header nav a:hover {
+            color: #00bfff;
+        }
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('img/background.jpeg') no-repeat center center/cover;
+            color: #f0f0f0;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            animation: fadeIn 2s 1s;
+        }
+        .hero .cta {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            background-color: #00bfff;
+            color: #1a1a1a;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            animation: fadeIn 2s 2s;
+        }
+        .hero .cta:hover {
+            background-color: #009acd;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+            background-color: #2a2a2a;
+        }
+        .feature-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .feature-card i {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #00bfff;
+        }
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 1em;
+        }
+        .testimonials {
+            padding: 50px;
+            background-color: #1a1a1a;
+        }
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+        .testimonial {
+            flex: 0 0 300px;
+            margin-right: 20px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            scroll-snap-align: start;
+        }
+        .testimonial p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .testimonial .author {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        footer {
+            padding: 20px 50px;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer .social-icons a {
+            color: #f0f0f0;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s, transform 0.3s;
+        }
+        footer .social-icons a:hover {
+            color: #00bfff;
+            transform: scale(1.2);
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+            .features {
+                padding: 20px;
+            }
+            .testimonials {
+                padding: 20px;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        .features {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+   min-height: 30vh;
+   background-color: black;
+}
+
+.feature-card {
+   --color: #0B0;
+   --border-size: 1rem;
+   --bg-color: #252525;
+   position: relative;
+   background-color: var(--bg-color);
+   width: 200px;
+   margin: 2rem;
+   border-radius: var(--border-size);
+   color: white;
+   display: grid;
+   place-content: center;
+   padding: 1rem 0.5rem;
+   isolation: isolate;
+   overflow: hidden;
+}
+
+.feature-card::before,.feature-card::after {
+   content: " ";
+   position: absolute;
+}
+
+.feature-card::before {
+   width: 200%;
+   height: 200%;
+   background-image: conic-gradient(var(--color) 0deg, transparent 60deg, transparent 180deg,
+   var(--color) 180deg, transparent 240deg);
+   inset: -50%;
+   z-index: -2;
+   animation: border 8s linear infinite;
+}
+
+.feature-card:hover::before {
+   animation-play-state: paused;
+}
+
+@keyframes border {
+   to {
+      transform: rotateZ(-360deg);
+   }
+}
+
+.feature-card::after {
+   --inset: 0.25rem;
+   background-color: #111;
+   inset: var(--inset);
+   border: calc( var(--border-size) - var(--inset));
+   z-index: -1;
+   transition: all 0.35s linear;
+}
+
+.feature-card:hover::after {
+   background-color: var(--bg-color);
+}
+
+.feature-card i {
+   font-size: 4rem;
+   margin-inline: auto;
+   color: transparent;
+   -webkit-text-stroke: thin var(--color);
+}
+
+.feature-card:hover i {
+   color: var(--color);
+   -webkit-text-stroke: 0;
+}
+
+.feature-card .title {
+   text-align: center;
+   font-size: 1.5rem;
+   line-height: 1.875rem;
+   margin-block: 2.5rem 1.5rem;
+   color: var(--color);
+}
+
+.feature-card .detail {
+   line-height: 1.5rem;
+   text-align: center;
+   opacity: 0.75;
+}
